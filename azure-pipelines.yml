@@ -23,8 +23,8 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: './WebAPIDemo/publish'
-    artifactName: WebApp
+    targetPath: './WebAPIDemo/'
+    artifactName: drop
     
 
 
