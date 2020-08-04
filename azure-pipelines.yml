@@ -19,13 +19,18 @@ steps:
   inputs:
     command: 'build'
     workingDirectory: './WebAPIDemo/'
-    
 
-- task: PublishPipelineArtifact@1
+- task: DotNetCoreCLI@2
   inputs:
-    targetPath: './WebAPIDemo/'
-    artifactName: drop
-    
+    command: 'publish'
+    publishWebProjects: true
+    arguments: '-c Release -o  ./publish'
+    modifyOutputPath: false
+    workingDirectory: './WebAPIDemo/'
+
+
+
+
 
 
 
