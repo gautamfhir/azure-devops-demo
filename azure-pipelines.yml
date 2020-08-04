@@ -21,12 +21,11 @@ steps:
     workingDirectory: './WebAPIDemo/'
     
 
-- task: DotNetCoreCLI@2
+- task: PublishPipelineArtifact@1
   inputs:
-    command: 'publish'
-    publishWebProjects: true
-    workingDirectory: './WebAPIDemo/'
-
+    targetPath: $(System.DefaultWorkingDirectory)/bin/WebApp
+    artifactName: WebApp
+    
 
 
 
