@@ -14,7 +14,7 @@ namespace WebAPIDemo.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "Hi There!", "Azure DevOps Demo" };
+            return new string[] { "Hi Haris!", "Azure DevOps Demo" };
         }
 
         // GET api/values/5
