@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace WebAPIDemo.Controllers
 {
@@ -10,11 +11,18 @@ namespace WebAPIDemo.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private IConfiguration configuration;
+
+        public ValuesController(IConfiguration iconfig)
+        {
+            configuration = iconfig;
+        }
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "Hi Haris!", "Azure DevOps Demo" };
+            string envMessage = configuration.GetSection("Message").Value;
+            return new string[] {  "Azure DevOps Demo", envMessage };
         }
 
         // GET api/values/5
