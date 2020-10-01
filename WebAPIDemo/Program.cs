@@ -16,8 +16,8 @@ namespace WebAPIDemo
         static string environment = "";
         public static void Main(string[] args)
         {
-            var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
-            environment = config.GetSection("Environment").Value;
+            //var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+            //environment = config.GetSection("Environment").Value;
 
             CreateHostBuilder(args).Build().Run();
         }
@@ -28,7 +28,7 @@ namespace WebAPIDemo
                 {
                     var env = context.HostingEnvironment;
                     config.AddJsonFile("appsettings.json");
-                    config.AddJsonFile($"appsettings.{environment}.json");
+                    config.AddJsonFile($"appsettings.{env.EnvironmentName}.json");
                     //config.AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("Env")}.json");
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
