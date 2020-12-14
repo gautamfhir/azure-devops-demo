@@ -28,7 +28,7 @@ namespace WebAPIDemo
                 {
                     var env = context.HostingEnvironment;
                     config.AddJsonFile("appsettings.json");
-                    config.AddJsonFile($"appsettings.{env.EnvironmentName}.json");
+                    config.AddJsonFile($"Configurations.{env.EnvironmentName}.json");
                     //config.AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("Env")}.json");
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
